@@ -1,0 +1,351 @@
+{% extends "basefile.html" %}
+{% block a %}
+
+<style>
+   .a { 
+        padding-top: 20px;
+       padding-right: 20px;
+    }
+    .ab{
+        padding-left: 19px;
+    }
+    .abcd{
+
+        @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap");
+
+:root {
+  /* Colors */
+  --brand-color: hsl(46, 100%, 50%);
+  --black: hsl(0, 0%, 0%);
+  --white: hsl(0, 0%, 100%);
+  /* Fonts */
+  --font-title: "Montserrat", sans-serif;
+  --font-text: "Lato", sans-serif;
+}
+
+/* RESET */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h2,
+p {
+  margin: 0;
+}
+
+/* GLOBAL STYLES */
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+h2 {
+  font-size: 2.25rem;
+  font-family: var(--font-title);
+  color: var(--white);
+  line-height: 1.1;
+}
+
+p {
+  font-family: var(--font-text);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--white);
+}
+
+.flow > * + * {
+  margin-top: var(--flow-space, 1em);
+}
+
+/* CARD COMPONENT */
+
+.card {
+  display: grid;
+  place-items: center;
+  width: 80vw;
+  max-width: 21.875rem;
+  height: 28.125rem;
+  overflow: hidden;
+  border-radius: 0.625rem;
+  box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
+}
+
+.card > * {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+.card__background {
+  object-fit: cover;
+  max-width: 100%;
+  height: 100%;
+}
+
+.card__content {
+  --flow-space: 0.9375rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: flex-end;
+  height: 55%;
+  padding: 12% 1.25rem 1.875rem;
+  background: linear-gradient(
+    180deg,
+    hsla(0, 0%, 0%, 0) 0%,
+    hsla(0, 0%, 0%, 0.3) 10%,
+    hsl(0, 0%, 0%) 100%
+  );
+}
+
+.card__content--container {
+  --flow-space: 1.25rem;
+}
+
+.card__title {
+  position: relative;
+  width: fit-content;
+  width: -moz-fit-content; /* Prefijo necesario para Firefox  */
+}
+
+.card__title::after {
+  content: "";
+  position: absolute;
+  height: 0.3125rem;
+  width: calc(100% + 1.25rem);
+  bottom: calc((1.25rem - 0.5rem) * -1);
+  left: -1.25rem;
+  background-color: var(--brand-color);
+}
+
+.card__button {
+  padding: 0.75em 1.6em;
+  width: fit-content;
+  width: -moz-fit-content; /* Prefijo necesario para Firefox  */
+  font-variant: small-caps;
+  font-weight: bold;
+  border-radius: 0.45em;
+  border: none;
+  background-color: var(--brand-color);
+  font-family: var(--font-title);
+  font-size: 1.125rem;
+  color: var(--black);
+}
+
+.card__button:focus {
+  outline: 2px solid black;
+  outline-offset: -5px;
+}
+
+@media (any-hover: hover) and (any-pointer: fine) {
+  .card__content {
+    transform: translateY(62%);
+    transition: transform 500ms ease-out;
+    transition-delay: 500ms;
+  }
+
+  .card__title::after {
+    opacity: 0;
+    transform: scaleX(0);
+    transition: opacity 1000ms ease-in, transform 500ms ease-out;
+    transition-delay: 500ms;
+    transform-origin: right;
+  }
+
+  .card__background {
+    transition: transform 500ms ease-in;
+  }
+
+  .card__content--container > :not(.card__title),
+  .card__button {
+    opacity: 0;
+    transition: transform 500ms ease-out, opacity 500ms ease-out;
+  }
+
+  .card:hover,
+  .card:focus-within {
+    transform: scale(1.05);
+    transition: transform 500ms ease-in;
+  }
+
+  .card:hover .card__content,
+  .card:focus-within .card__content {
+    transform: translateY(0);
+    transition: transform 500ms ease-in;
+  }
+
+  .card:focus-within .card__content {
+    transition-duration: 0ms;
+  }
+
+  .card:hover .card__background,
+  .card:focus-within .card__background {
+    transform: scale(1.3);
+  }
+
+  .card:hover .card__content--container > :not(.card__title),
+  .card:hover .card__button,
+  .card:focus-within .card__content--container > :not(.card__title),
+  .card:focus-within .card__button {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+    transition-delay: 1000ms;
+  }
+
+  .card:hover .card__title::after,
+  .card:focus-within .card__title::after {
+    opacity: 1;
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: opacity 500ms ease-in, transform 500ms ease-in;
+    transition-delay: 500ms;
+  }
+}
+
+    }
+</style>
+
+
+<div style="display: flex; justify-content: space-around;margin-top:70PX;">
+    <div>
+    <div class="a">
+   <h1 style="font-weight: bold;"> ROOMS</h1>
+</div>
+<p>
+    <li>Step into our impeccably furnished hotel room,<br>
+    where modern comfort meets convenience. Unwind<br>
+    in style with a cozy bed, and stay entertained<br>
+    with a sleek TV offering a range of channels..<br>
+    For your culinary needs, there’s a handy microwave,<br>
+    a convenient refrigerator, and a coffee maker <br>
+    at your service. Need to catch up on work? Sit<br>
+    down at the dedicated workspace with a comfortable<br>
+    chair and ample lighting. Your comfort is our <br>
+    priority, and every detail has been carefully<br>
+    curated to ensure a delightful stay.</li>
+</p>
+
+<h6>CHECK-IN|CHECK-OUT</h6>
+
+<div class="ab">
+<h6>4:00pm|11:00am</h6>
+</div>
+</div>
+<div>
+<div class="abcd">
+    
+    
+    <article class="card">
+        <img
+          class="card__background"
+          src="https://wallpapers.com/images/featured/hotel-room-background-qad26bgd35ll4qv6.jpg"
+          alt="Photo of Cartagena's cathedral at the background and some colonial style houses"
+          width="1920"
+          height="2193"
+        />
+        <div class="card__content | flow">
+          <div class="card__content--container | flow">
+            <h2 class="card__title">Colombia</h2>
+            <p class="card__description">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum in
+              labore laudantium deserunt fugiat numquam.
+            </p>
+          </div>
+          <button class="card__button">Read more</button>
+        </div>
+      </article>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<div style="padding-left: 30px; padding-top: 30px;">
+  <h1>Elevate Your Stay with In-Room Amenities and Hassle-Free Dry Cleaning</h1>
+  <p>
+    When you choose to stay with us, you’re not just reserving a room; <br>
+    you’re unlocking a world of convenience and comfort. Our commitment <br>
+    to making your stay exceptional extends beyond comfortable bedding and <br>
+    courteous service. We’ve thoughtfully curated a range of in-room amenities<br>
+    that cater to your needs, ensuring your stay is as enjoyable as possible.
+  </p>
+  <h4>In-Room Amenities:</h4>
+  
+    <h5>Refrigerator:</h5> <li>Keep your beverages chilled and store your favorite snacks for late-night cravings. No need to step out for a cold drink or worry about food spoilage.</li>
+     <h5>Microwave:</h5><li> Warm up leftovers or enjoy a quick meal without leaving the comfort of your room. It’s perfect for heating up your favorite comfort foods.</li>
+    <h5>Coffee Maker:</h5><li> Begin your day with a freshly brewed cup of coffee or tea. Enjoy the convenience of making your morning brew without having to leave your room.</li>
+      <h5>Hairdryer:</h5><li> ready quickly and effortlessly with a high-quality hairdryer. No need to pack your own, save luggage space for other essentials.</li>
+      <h5>Iron:</h5> <li>Stay looking sharp for any occasion with an in-room iron. Whether it’s a business meeting or a special dinner, wrinkle-free attire is at your fingertips.</li>
+  
+      <h5>Dry Cleaning Services:</h5> <li>Our commitment to your convenience doesn’t stop with in-room amenities. With a reservation of two nights or more, you can take advantage of our hassle-free dry cleaning service in partnership with “Green Drycleaners.” Here’s how it works:</li>
+    <h5>Pickup and Delivery:</h5> <li>We understand that you’re here to relax or conduct important business, so we’ve made dry cleaning effortless. Place your clothes in the provided dry cleaning bag in your room. Our professional team will pick up your garments the next morning and entrust them to “Green Drycleaners.”</li>
+  <h5>Price List Papers:</h5><li> For your convenience, we provide two price list papers along with your dry cleaning bag. Here’s what to do with them:</li>
+<li>Fill out one price list paper with your room number, date, and name.</li>
+<li>  Check the boxes next to the garments you’re sending for cleaning on the same paper.</li>
+<li>  Place this completed paper inside the dry cleaning bag along with your garments.</li>
+<li> Keep the second price list paper with you. This serves as your receipt and reference.</li>
+    <h5>Professional Care:</h5> <li>Your clothes are in expert hands. “Green Drycleaners” ensures your attire is treated with the utmost care, keeping them looking pristine.</li>
+  <h5>Evening Delivery: </h5><li>We know you need your clothes back promptly. Your cleaned and pressed garments will be returned to your room by the evening, so you’re ready for your next day’s endeavors.</li>
+      By offering these exceptional in-room amenities and partnering with “Green Drycleaners” for convenient dry cleaning services for guests staying two nights or more, we aim to enhance your overall experience. It’s our way of ensuring that your stay is not only comfortable but also tailored to your needs, allowing you to focus on what truly matters during your visit.</li>
+</div>
+<div style="text-align: center; padding-top: 20px;">
+      <a class="btn btn-primary" href="https://www.freecodecamp.org/">Click Here TO View Price List</a>
+
+    </div>
+
+  <div style="text-align: center;padding-top: 40px;">
+    <h1>ROOMS</h1>
+  </div>
+  <div class="" style="display: flex;padding-left: 60px;padding-top: 30px;">
+    <div class="container-fluid">
+      <img style="max-width:500px;" src="https://wallpapers.com/images/hd/hotel-room-1815-x-1200-picture-43qdu67p14m5gkki.jpg" >
+      <h4 style="padding-top: 30px;font-weight:  bold;">Two King Bedrooms</h4>
+      <p>Gratify yourself with the privacy and ample space of our Two King Bed <br>guestrooms, which feature two distinct bedrooms,each furnished with <br>king-size bed. You can also relish a complimentary cup of coffee while <br>watching your favorite shows on one of our premium LED TVs.<br> This ensures that everyone enjoys the room they require in a truly <br>lavish manner.</p>
+      <a class="btn btn-primary" href="https://www.freecodecamp.org/">Check Availability</a>
+    </div>
+    <div class="container">
+      <img style="max-width:500px;"src="https://wowwallpaperhanging.com.au/wp-content/uploads/2013/06/Hotel-La-Chamoiserie-wallpaper-in-hotel-room.png">
+      <h4 style="padding-top: 30px;font-weight:  bold;">One King Bed Executive Suite</h4>
+      <p>Designed with luxury in mind, this remarkably roomy and contemporary suite offers a delightful experience! The King Executive Suite features a king-sized bed along with a distinct living space and a dining/conference area, ensuring the utmost in comfort. The sofa bed allows for a tranquil stay accommodating up to four individuals. A Complimentary American Breakfast Buffet is also included.</p>
+      <a class="btn btn-primary" href="https://www.freecodecamp.org/">Check Availability</a>
+    </div>
+  </div>
+    <div class="" style="display: flex;padding-left: 60px;padding-top: 30px;">
+      <div class="container-fluid">
+        <img style="max-width:500px;" src="https://i.pinimg.com/originals/fc/71/de/fc71de894192b9d18da0dc29e1538a62.jpg" >
+        <h4 style="padding-top: 30px;font-weight:  bold;">One King Bed Suite</h4>
+        <p>The King Bed Suite combines both practicality and distinct areas,<br>featuring a roomy bedroom with a king-size bed and a separate living <br>space furnished with a sofa bed. This suite is suitable for<br>up to four individuals and comes with premium amenities to enhance experience for the whole family.</p>
+        <a class="btn btn-primary" href="https://www.freecodecamp.org/">Check Availability</a>
+      </div>
+      <div class="container">
+        <img style="max-width:500px;"src="https://w0.peakpx.com/wallpaper/460/608/HD-wallpaper-hotel-room-hotel-beautiful-art-house-romantic-black-yellow-luxury-rooms-bedrooms-decor-nice-beige-style.jpg">
+        <h4 style="padding-top: 30px;font-weight:  bold;">One King Bed Suite (ADA)</h4>
+        <p>The King Bed Suite (ADA) provides a blend of practicality, separation, and accessibility, featuring a generously sized bedroom with a king-size bed and a separate living area complete with a sofa bed. This suite is designed to comfortably host up to four guests and is equipped with premium amenities to enhance the experience for the whole family.</p>
+        <a class="btn btn-primary" href="https://www.freecodecamp.org/">Check Availability</a>
+      </div>
+    </div>
+    <div class="" style="display: flex;padding-left: 60px;padding-top: 30px;">
+      <div class="container-fluid">
+        <img style="max-width:500px;" src="https://i.pinimg.com/originals/fc/71/de/fc71de894192b9d18da0dc29e1538a62.jpg" >
+        <h4 style="padding-top: 30px;font-weight:  bold;">Presidential Executive Suite</h4>
+        <p>Our Presidential Suite, the most expansive option available, combines opulence and coziness to create a<br> roomy sanctuary that provides a home-like atmosphere for up to four occupants. Featuring two separate bedrooms<br> each furnished with king-sized beds and two full bathrooms, this suite<br> guarantees that everyone can enjoy their own personal space for and relaxation after exploring all that New Jersey has to offer.</p>
+        <a class="btn btn-primary" href="https://www.freecodecamp.org/">Check Availability</a>
+      </div>
+      <div class="container">
+        <img style="max-width:500px;"src="https://w0.peakpx.com/wallpaper/460/608/HD-wallpaper-hotel-room-hotel-beautiful-art-house-romantic-black-yellow-luxury-rooms-bedrooms-decor-nice-beige-style.jpg">
+        <h4 style="padding-top: 30px;font-weight:  bold;">Two Double Bed Executive Suite</h4>
+        <p>An elegantly designed and distinctive suite featuring two double beds and a sofa bed, accommodating up to six individuals. The Double Bed Executive Suite provides a roomy and peaceful haven complete with luxurious amenities.</p>
+        <div style="padding-top: 97px;">
+        <a class="btn btn-primary" href="https://www.freecodecamp.org/">Check Availability</a>
+        </div>
+      </div>
+    </div>
+
+
+{% endblock a %}

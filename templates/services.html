@@ -1,0 +1,30 @@
+{% extends "basefile.html" %}
+{% block abc %}
+
+<style>
+    .a{
+        padding-top: 40px;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .ab{
+        padding-left: 500px;
+        padding-top: 10px;
+    }
+</style>
+<form action="/savethisdata" method="post" style= "padding-top: 40px;padding-left: 50px;padding-right: 40px;">
+    <div class="form-group">
+      <label for="text">NAME</label>
+      <input type="text" class="form-control" placeholder="Enter your name"name="title">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">ADDRESS</label>
+      <textarea type="text" class="form-control" rows="4" placeholder="Enter your ADDRESS"name="desc"></textarea>
+    </div>
+
+    <div style="text-align:center ;padding-top: 20px;">
+    <button type="submit" class="btn btn-primary">SUBMIT</button>
+    </div>
+  </form>
+
+{% endblock abc %}
